@@ -53,8 +53,12 @@ class MainActivity : AppCompatActivity() {
             else{
                 //실패시 예외처리
                 imageListAdapter.clear()
-                binding.emptyText.visibility = View.VISIBLE
-                binding.emptyText.text = errorTxt
+                imageListAdapter.notifyDataSetChanged()
+                if (binding.edtSearch.text.toString().isNotEmpty()) {
+                    binding.emptyText.visibility = View.VISIBLE
+                    binding.emptyText.text = errorTxt
+                }
+
 
             }
         })

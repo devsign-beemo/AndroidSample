@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
+        <variable
+            name="activity"
+            type="com.beemo.daumimagesearchapp.activity.FullImageActivity" />
+        <variable
+            name="image"
+            type="com.beemo.daumimagesearchapp.response.KakaoImage" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/gridImg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:imageUrl="@{image.image_url}"
+
+                />
+        </ScrollView>
+
+
+        <TextView
+            android:id="@+id/gridName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridImg"
+            android:text="@{image.siteName}" />
+
+        <TextView
+            android:id="@+id/gridSub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridName"
+            android:text="@{image.datetime.toString()}" />
+
+    </LinearLayout>
+
+
+</layout>
